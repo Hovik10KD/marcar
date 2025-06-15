@@ -2,7 +2,7 @@ import clsx from "clsx";
 import { Footer } from "@/components/atoms/footer";
 import { CarCard } from "@/components/atoms/car-card";
 import { Box } from "@mantine/core";
-import { SortingButton } from "@/components/atoms/sorting-button/component";
+import { SortingButton } from "@/components/atoms/sorting-button";
 import { HomeTemplateProps } from "./types";
 import styles from "./styles.module.css";
 

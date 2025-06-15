@@ -2,6 +2,7 @@ import { Blockquote } from "@mantine/core";
 import { getCars } from "@/lib/api/queries/get-cars";
 import { Car } from "@/lib/types/car";
 import { Order, SortBy } from "@/lib/types/sort-state";
+import { HomeTemplate } from "@/components/templates/home";
 
 type PageParams = {
   searchParams?: {
@@ -20,9 +21,12 @@ export default async function Home({ searchParams }: PageParams) {
       : undefined;
 
   let cars: Car[] = [];
+  let totalPages: number = 0;
 
   try {
-    cars = await getCars({ page, sort, order, limit: 12 });
+    const res = await getCars({ page, sort, order, limit: 12 });
+    cars = res.data;
+    totalPages = Math.ceil(res.meta.total / res.meta.limit);
   } catch {
     return (
       <Blockquote color="red" cite="Something went wrong" m="xl">
@@ -31,13 +35,5 @@ export default async function Home({ searchParams }: PageParams) {
     );
   }
 
-  return (
-    <ul>
-      {cars.map((car) => (
-        <li key={car.id}>
-          {car.brand} {car.model} — {car.price} ₽
-        </li>
-      ))}
-    </ul>
-  );
+  return <HomeTemplate cars={cars} totalPages={totalPages} />;
 }

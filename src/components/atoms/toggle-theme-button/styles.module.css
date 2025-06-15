@@ -1,14 +1,7 @@
 .button {
   position: fixed;
-  bottom: 1.5rem;
+  bottom: calc(1.5rem + 60px);
   right: 1.5rem;
   z-index: 1000;
-}
-
-.dark {
-  box-shadow: 0 4px 14px rgba(255, 255, 255, 0.20);
-}
-
-.light {
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.20);
+  box-shadow: 0 4px 14px rgba(210, 210, 210, 0.5);
 }

@@ -10,11 +10,6 @@ const ICONS = {
   [ColorScheme.LIGHT]: <IconSun size={18} />,
 };
 
-const CLASS_NAMES = {
-  [ColorScheme.DARK]: styles.dark,
-  [ColorScheme.LIGHT]: styles.light,
-};
-
 export const ToggleThemeButton = ({
   toggleTheme,
   theme,
@@ -24,8 +19,7 @@ export const ToggleThemeButton = ({
       onClick={toggleTheme}
       size="xl"
       aria-label="Toggle theme"
-      variant="outline"
-      className={clsx(styles.button, CLASS_NAMES[theme])}
+      className={clsx(styles.button)}
     >
       {ICONS[theme]}
     </ActionIcon>

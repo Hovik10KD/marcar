@@ -9,12 +9,21 @@ type GetCarsParams = {
   limit?: number;
 };
 
+type GetCarsResponse = {
+  data: Car[];
+  meta: {
+    limit: number;
+    page: number;
+    total: number;
+  };
+};
+
 export async function getCars({
   page = 1,
   sort,
   order,
   limit = 12,
-}: GetCarsParams): Promise<Car[]> {
+}: GetCarsParams): Promise<GetCarsResponse> {
   const params = new URLSearchParams({
     _limit: limit.toString(),
     _page: page.toString(),
@@ -29,7 +38,7 @@ export async function getCars({
     throw new Error(`Error: ${res.status}`);
   }
 
-  const data = (await res.json())?.data as Car[];
+  const data = (await res.json()) as GetCarsResponse;
 
   return data;
 }

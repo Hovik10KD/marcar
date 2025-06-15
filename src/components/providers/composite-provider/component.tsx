@@ -7,10 +7,10 @@ import { ToggleThemeButton } from "@/components/atoms/toggle-theme-button";
 import { useTheme } from "./hooks/use-theme";
 
 export const CompositeProvider = ({ children }: PropsWithChildren) => {
-  const { theme, themeConfigs, defaultTheme, toggleTheme } = useTheme();
+  const { theme, themeConfigs, toggleTheme } = useTheme();
 
   return (
-    <MantineProvider theme={themeConfigs} defaultColorScheme={defaultTheme}>
+    <MantineProvider theme={themeConfigs} defaultColorScheme={theme}>
       {children}
 
       <ToggleThemeButton toggleTheme={toggleTheme} theme={theme} />

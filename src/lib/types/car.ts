@@ -1,7 +1,10 @@
 export type Car = {
-  id: number;
-  brand: string;
-  model: string;
+  mark_id: string;
+  folder_id: string;
   price: number;
-  year: number;
+  currency: string;
+  extras: string;
+  images: {
+    image: string[];
+  };
 };

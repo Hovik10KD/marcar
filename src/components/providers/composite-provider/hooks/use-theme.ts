@@ -67,6 +67,5 @@ export const useTheme = () => {
     toggleTheme,
     themeConfigs: THEMES[colorScheme],
     theme: colorScheme,
-    defaultTheme: ColorScheme.LIGHT,
   };
 };
